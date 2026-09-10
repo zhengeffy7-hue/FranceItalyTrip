@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="day">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>成都·罗马·南法·意南·巴黎 — 旅行手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Archivo:wght@400;500;600;700&family=Archivo+Expanded:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F8F4EA;
+    --paper-soft:#EFE9D9;
+    --ink:#20303A;
+    --ink-soft:#4B5A62;
+    --line:rgba(32,48,58,0.14);
+    --sea:#1F6E75;
+    --sea-soft:#DDEBE9;
+    --gold:#C6912E;
+    --gold-soft:#F3E4BE;
+    --rust:#AE4B2A;
+    --rust-soft:#F3DFD3;
+    --sage:#6C7B54;
+    --sage-soft:#E4E7D5;
+    --card:#FFFDF6;
+    --deck:#1B262E;
+    --deck-soft:#28353D;
+    --deck-line:rgba(241,231,208,0.14);
+    --deck-ink:#F1E7D0;
+    --deck-ink-soft:#9FB0B6;
+    --shadow: 0 1px 0 rgba(32,48,58,0.06);
+    --radius: 4px;
+    color-scheme: light;
+  }
+  html[data-theme="night"]{
+    --paper:#182229;
+    --paper-soft:#1F2B33;
+    --ink:#EDE6D3;
+    --ink-soft:#AEB9BC;
+    --line:rgba(237,230,211,0.14);
+    --sea:#5FB4B9;
+    --sea-soft:#20363A;
+    --gold:#E1B45C;
+    --gold-soft:#332A18;
+    --rust:#E08862;
+    --rust-soft:#3A2620;
+    --sage:#A3B383;
+    --sage-soft:#2A2F20;
+    --card:#1E2932;
+    --deck:#0E1519;
+    --deck-soft:#182028;
+    --deck-line:rgba(237,230,211,0.1);
+    --deck-ink:#F1E7D0;
+    --deck-ink-soft:#7E8B8F;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    transition:background .6s ease, color .6s ease;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+  a{color:inherit;}
+  .mono{font-family:'Space Mono',monospace;}
+
+  /* ---------- Header ---------- */
+  header.hero{
+    padding:44px 22px 26px;
+    max-width:760px;margin:0 auto;
+  }
+  .route-tag{
+    font-family:'Archivo Expanded',sans-serif;
+    font-size:12px;
+    letter-spacing:.03em;
+    color:var(--sea);
+    font-weight:700;
+    margin-bottom:12px;
+  }
+  h1.title{
+    font-family:'Piazzolla',serif;
+    font-weight:600;
+    font-size:clamp(28px,6vw,40px);
+    line-height:1.14;
+    margin:0 0 12px;
+    color:var(--ink);
+  }
+  h1.title em{font-style:italic;color:var(--sea);font-weight:500;}
+  .hero-meta{
+    display:flex;gap:20px;flex-wrap:wrap;
+    font-size:13.5px;color:var(--ink-soft);
+  }
+  .hero-meta b{color:var(--ink);font-weight:600;}
+
+  /* ---------- Tab nav ---------- */
+  nav.tabbar{
+    position:sticky; top:0; z-index:40;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(6px);
+  }
+  .tabbar-inner{
+    max-width:760px;margin:0 auto;
+    display:flex; align-items:center; gap:4px;
+    padding:0 14px; overflow-x:auto;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  .tabbar-inner::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto;
+    font-size:13.5px; font-weight:600; color:var(--ink-soft);
+    text-decoration:none; padding:14px 12px; position:relative;
+    white-space:nowrap;
+  }
+  .tab.active{color:var(--sea);}
+  .tab.active::after{
+    content:""; position:absolute; left:12px; right:12px; bottom:0; height:2px;
+    background:var(--sea);
+  }
+
+  /* ---------- section titles ---------- */
+  .section{max-width:760px;margin:0 auto;padding:52px 22px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:20px;
+  }
+  .section-num{
+    font-family:'Space Mono',monospace;
+    color:var(--sea); font-size:13px;
+  }
+  h2.section-title{
+    font-family:'Piazzolla',serif; font-weight:600;
+    font-size:23px; margin:0; color:var(--ink);
+  }
+  .section-sub{font-size:13px; color:var(--ink-soft); margin:-12px 0 20px;}
+
+  /* ---------- Journey cards (dark deck) ---------- */
+  .deck-scroll{
+    display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding:2px 22px 6px; margin:0 -22px;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  .deck-scroll::-webkit-scrollbar{display:none;}
+  .deck-card{
+    scroll-snap-align:start;
+    flex:0 0 88%;
+    background:var(--deck); color:var(--deck-ink);
+    border-radius:10px; padding:22px 22px 24px;
+  }
+  @media (min-width:600px){.deck-card{flex:0 0 480px;}}
+  .deck-top{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11.5px; color:var(--deck-ink-soft); letter-spacing:.03em;
+    margin-bottom:22px;
+  }
+  .deck-route{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    margin-bottom:18px;
+  }
+  .deck-code{font-family:'Piazzolla',serif; font-weight:700; font-size:clamp(28px,7vw,38px); line-height:1;}
+  .deck-city{font-size:12px; color:var(--deck-ink-soft); margin-top:6px;}
+  .deck-mid{
+    flex:1; text-align:center; padding:0 8px 10px;
+    font-size:11px; color:var(--deck-ink-soft);
+  }
+  .deck-mid .arrow{display:block; font-size:14px; color:var(--sea); margin:2px 0;}
+  .deck-times{
+    display:flex; justify-content:space-between; font-size:12.5px; color:var(--deck-ink-soft);
+    border-top:1px solid var(--deck-line); padding-top:14px; margin-top:2px;
+  }
+  .deck-times b{color:var(--deck-ink); font-weight:600; display:block; font-size:14px; margin-top:2px;}
+  .deck-note{
+    margin-top:14px; font-size:12px; color:var(--deck-ink-soft);
+    background:rgba(241,231,208,0.06); border-radius:6px; padding:8px 12px;
+  }
+  .deck-cd-label{font-size:11.5px; color:var(--deck-ink-soft); margin-top:20px; margin-bottom:8px; text-align:center;}
+  .deck-cd{display:flex; justify-content:center; gap:4px; font-family:'Piazzolla',serif; font-weight:700; font-size:26px; font-variant-numeric:tabular-nums;}
+  .deck-cd .u{font-size:11px; font-weight:400; color:var(--deck-ink-soft); font-family:'Archivo',sans-serif; margin:0 8px 0 2px; align-self:flex-end;}
+  .deck-dots{display:flex; justify-content:center; gap:6px; margin:14px 0 4px;}
+  .deck-dots i{width:6px;height:6px;border-radius:50%;background:var(--line);}
+  .deck-dots i.on{background:var(--sea);}
+
+  /* ---------- now strip (compact, used inside flights tab intro) ---------- */
+  .now-strip{
+    display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:14px 18px; margin:0 22px 30px; max-width:716px;
+  }
+  .now-strip .label{font-size:12px; color:var(--ink-soft);}
+  .now-strip .val{font-family:'Piazzolla',serif; font-weight:600; font-size:15px;}
+  .now-strip .map-link{font-size:12.5px; color:var(--sea); text-decoration:none; border-bottom:1px solid var(--sea);}
+
+  /* ---------- booking group (hotels) ---------- */
+  .booking-group{margin-bottom:26px;}
+  .booking-group h3{
+    font-family:'Archivo Expanded',sans-serif; font-size:12.5px; letter-spacing:.02em;
+    color:var(--ink-soft); margin:0 0 10px;
+    padding-bottom:6px; border-bottom:1px solid var(--line);
+  }
+  .hotel-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px; margin-bottom:10px;
+  }
+  .hotel-name{font-weight:600; font-size:15px; margin-bottom:3px;}
+  .hotel-nights{
+    display:inline-block; font-size:11.5px; color:var(--sea);
+    background:var(--sea-soft); padding:2px 8px; border-radius:20px; margin-left:8px;
+    vertical-align:middle;
+  }
+  .hotel-addr{font-size:13.5px; color:var(--ink-soft); margin-top:4px;}
+  .hotel-addr a{color:var(--sea); text-decoration:none; border-bottom:1px solid var(--sea);}
+  .hotel-dates{font-size:12.5px; color:var(--ink-soft); margin-top:6px;}
+  .plan-row{display:flex; gap:16px; padding:9px 0; border-top:1px solid var(--line);}
+  .plan-row:first-of-type{border-top:none;}
+  .plan-content{flex:1; font-size:14.5px;}
+  .badge{display:inline-block; font-size:11px; padding:1px 8px; border-radius:20px; margin-left:6px; vertical-align:middle; font-weight:600;}
+  .badge.book{background:var(--rust-soft); color:var(--rust);}
+  .badge.tip{background:var(--gold-soft); color:var(--gold);}
+
+  /* ---------- illustrated route map ---------- */
+  .map-wrap{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 8px 6px;
+  }
+  .map-wrap svg{width:100%; height:auto; display:block;}
+  .map-legend{
+    display:flex; flex-wrap:wrap; gap:10px 18px; padding:14px 12px 6px;
+    font-size:12px; color:var(--ink-soft);
+  }
+  .map-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+
+  /* ---------- day itinerary ---------- */
+  details.day{border-bottom:1px solid var(--line);}
+  details.day:first-of-type{border-top:1px solid var(--line);}
+  details.day summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:16px; padding:18px 4px;}
+  details.day summary::-webkit-details-marker{display:none;}
+  .day-date{font-family:'Piazzolla',serif; font-weight:600; font-size:19px; min-width:70px; color:var(--ink);}
+  .day-date small{display:block; font-size:11px; font-weight:400; color:var(--ink-soft);}
+  .day-headline{flex:1; font-size:14px; color:var(--ink-soft);}
+  .day-headline b{color:var(--ink); font-weight:600;}
+  .day-caret{font-size:12px; color:var(--sea); transition:transform .25s ease;}
+  details[open] .day-caret{transform:rotate(90deg);}
+  .day-body{padding:0 4px 22px 4px;}
+  .day-nav-btn{display:inline-block; font-size:12.5px; color:var(--sea); text-decoration:none; border:1px solid var(--sea); border-radius:20px; padding:5px 14px; margin-bottom:16px;}
+  .plan-row .plan-time{min-width:82px; font-size:12.5px; color:var(--ink-soft); font-variant-numeric:tabular-nums; padding-top:1px;}
+  .plan-content a{color:var(--sea); text-decoration:none; border-bottom:1px solid var(--sea);}
+  .plan-note{display:block; margin-top:4px; font-size:12px;}
+
+  /* ---------- todo ---------- */
+  ul.todo{list-style:none; margin:0; padding:0;}
+  ul.todo li{padding:12px 0 12px 24px; border-bottom:1px solid var(--line); font-size:14.5px; position:relative;}
+  ul.todo li:first-child{border-top:1px solid var(--line);}
+  ul.todo li::before{content:"—"; position:absolute; left:0; color:var(--sea);}
+
+  /* ---------- tips ---------- */
+  .tip-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:520px){.tip-grid{grid-template-columns:1fr;}}
+  .tip-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px;}
+  .tip-card h4{margin:0 0 6px; font-family:'Piazzolla',serif; font-size:15px; font-weight:600; color:var(--sea);}
+  .tip-card p{margin:0; font-size:13.5px; color:var(--ink-soft);}
+
+  footer{max-width:716px;margin:70px auto 0;padding:22px; font-size:12px;color:var(--ink-soft); text-align:center; border-top:1px solid var(--line);}
+  .bottom-space{height:60px;}
+
+  .theme-toggle{
+    position:fixed; right:16px; bottom:16px; z-index:50;
+    width:38px;height:38px;border-radius:50%;
+    background:var(--card); border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer; font-size:16px; box-shadow:var(--shadow); color:var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="route-tag">FOC → CTU → FCO → NCE → NAP → FCO → CDG → FOC</div>
+  <h1 class="title">意大利 · 法国<br><em>十七天</em>行程手册</h1>
+  <div class="hero-meta">
+    <span><b>2026.09.24</b> — <b>2026.10.10</b></span>
+    <span>3 人同行</span>
+  </div>
+</header>
+
+<nav class="tabbar">
+  <div class="tabbar-inner">
+    <a href="#flights" class="tab active" data-tab>航班</a>
+    <a href="#map" class="tab" data-tab>路线</a>
+    <a href="#days" class="tab" data-tab>行程</a>
+    <a href="#todo" class="tab" data-tab>待办</a>
+    <a href="#tips" class="tab" data-tab>贴士</a>
+  </div>
+</nav>
+
+<!-- ================= FLIGHTS ================= -->
+<section class="section" id="flights">
+  <div class="section-head"><span class="section-num">01</span><h2 class="section-title">航班行程</h2></div>
+  <div class="section-sub">左右滑动查看全部 4 段旅程</div>
+</section>
+
+<div class="deck-scroll" id="deck-scroll">
+
+  <div class="deck-card" data-takeoff="2026-09-24T09:20:00Z">
+    <div class="deck-top"><span>福州 → 成都</span><span>四川航空 3U6910</span></div>
+    <div class="deck-route">
+      <div><div class="deck-code">FOC</div><div class="deck-city">福州</div></div>
+      <div class="deck-mid">直飞<span class="arrow">→</span></div>
+      <div><div class="deck-code">CTU</div><div class="deck-city">成都</div></div>
+    </div>
+    <div class="deck-times">
+      <span>9/24 17:20 出发</span>
+      <span style="text-align:right">9/24 20:10 抵达</span>
+    </div>
+    <div class="deck-note">抵达后直接前往太古里酒店，为 26 号凌晨的国际航班做准备</div>
+    <div class="deck-cd-label">距离出发还剩</div>
+    <div class="deck-cd" data-cd>
+      <span id="cd1-d">–</span><span class="u">天</span><span id="cd1-h">–</span><span class="u">时</span><span id="cd1-m">–</span><span class="u">分</span><span id="cd1-s">–</span><span class="u">秒</span>
+    </div>
+  </div>
+
+  <div class="deck-card">
+    <div class="deck-top"><span>成都 → 尼斯</span><span>四川航空 · 易捷航空</span></div>
+    <div class="deck-route">
+      <div><div class="deck-code">CTU</div><div class="deck-city">成都</div></div>
+      <div class="deck-mid">3U3895<span class="arrow">→</span>FCO<span class="arrow">→</span>U22978</div>
+      <div><div class="deck-code">NCE</div><div class="deck-city">尼斯</div></div>
+    </div>
+    <div class="deck-times">
+      <span>9/26 01:40 出发<b>成都</b></span>
+      <span style="text-align:right">9/26 11:55 抵达<b>尼斯</b></span>
+    </div>
+    <div class="deck-note">罗马菲乌米奇诺转机，约 3 小时 40 分钟 · 全程约 16 小时 15 分钟</div>
+  </div>
+
+  <div class="deck-card" data-takeoff="2026-10-02T12:55:00Z">
+    <div class="deck-top"><span>尼斯 → 那不勒斯</span><span>易捷航空 U24192</span></div>
+    <div class="deck-route">
+      <div><div class="deck-code">NCE</div><div class="deck-city">尼斯</div></div>
+      <div class="deck-mid">直飞<span class="arrow">→</span></div>
+      <div><div class="deck-code">NAP</div><div class="deck-city">那不勒斯</div></div>
+    </div>
+    <div class="deck-times">
+      <span>10/2 14:55 出发</span>
+      <span style="text-align:right">10/2 16:20 抵达</span>
+    </div>
+    <div class="deck-note">戛纳退房后打车约 40 分钟到尼斯机场，建议提前 2 小时到达</div>
+  </div>
+
+  <div class="deck-card" data-takeoff="2026-10-07T13:30:00Z">
+    <div class="deck-top"><span>罗马 → 巴黎</span><span>易捷航空 U24936</span></div>
+    <div class="deck-route">
+      <div><div class="deck-code">FCO</div><div class="deck-city">罗马</div></div>
+      <div class="deck-mid">直飞<span class="arrow">→</span></div>
+      <div><div class="deck-code">ORY</div><div class="deck-city">巴黎奥利</div></div>
+    </div>
+    <div class="deck-times">
+      <span>10/7 15:30 出发</span>
+      <span style="text-align:right">10/7 17:35 抵达</span>
+    </div>
+    <div class="deck-note">当天上午还有西线游览，13:00 前必须从酒店出发，注意别拖延</div>
+  </div>
+
+  <div class="deck-card" data-takeoff="2026-10-09T19:20:00Z">
+    <div class="deck-top"><span>巴黎 → 福州</span><span>东方航空</span></div>
+    <div class="deck-route">
+      <div><div class="deck-code">CDG</div><div class="deck-city">巴黎</div></div>
+      <div class="deck-mid">MU570<span class="arrow">→</span>PVG<span class="arrow">→</span>MU5599</div>
+      <div><div class="deck-code">FOC</div><div class="deck-city">福州</div></div>
+    </div>
+    <div class="deck-times">
+      <span>10/9 21:20 出发<b>巴黎</b></span>
+      <span style="text-align:right">10/10 18:20 抵达<b>福州</b></span>
+    </div>
+    <div class="deck-note">上海浦东转机，约 1 小时 50 分钟 · 全程约 15 小时</div>
+  </div>
+
+</div>
+<div class="deck-dots" id="deck-dots">
+  <i class="on"></i><i></i><i></i><i></i><i></i>
+</div>
+
+<div class="now-strip">
+  <div>
+    <div class="label">此刻关注</div>
+    <div class="val" id="now-title">加载中…</div>
+  </div>
+  <a href="#" class="map-link" id="now-map-link" target="_blank" rel="noopener">在地图中查看 →</a>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="booking-group">
+    <h3>住宿</h3>
+    <div class="hotel-card">
+      <div class="hotel-name">SFEEL 设计师酒店（成都太古里店）<span class="hotel-nights">1 晚</span></div>
+      <div class="hotel-addr"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%9B%E5%B7%9D%E6%88%90%E9%83%BD%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%9C%E5%AE%89%E5%8D%97%E8%B7%AF59%E5%8F%B73%E6%A5%BC" target="_blank" rel="noopener">四川成都锦江区东安南路59号3楼 →</a></div>
+      <div class="hotel-dates">9/24 14:00 入住 · 9/25 12:00 退房</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-name">戛纳公寓（Airbnb）<span class="hotel-nights">6 晚</span></div>
+      <div class="hotel-addr"><a href="https://www.google.com/maps/search/?api=1&query=45+Boulevard+de+la+Croisette%2C+Cannes%2C+France" target="_blank" rel="noopener">45 Boulevard de la Croisette, Cannes →</a></div>
+      <div class="hotel-dates">9/26 16:00 入住 · 10/2 11:00 退房</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-name">Ideal City Walk（那不勒斯）<span class="hotel-nights">1 晚</span></div>
+      <div class="hotel-addr"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+Garibaldi+99%2C+80142+Napoli" target="_blank" rel="noopener">Piazza Garibaldi 99, 80142, Napoli →</a></div>
+      <div class="hotel-dates">10/2 17:40 入住 · 10/3 退房 · 靠近 Napoli Centrale 火车站</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-name">Stylish & Elegant Flat（索伦托）<span class="hotel-nights">3 晚</span></div>
+      <div class="hotel-addr"><a href="https://www.google.com/maps/search/?api=1&query=Via+Parsano%2C+4%2C+Sorrento" target="_blank" rel="noopener">Via Parsano, 4, Sorrento →</a></div>
+      <div class="hotel-dates">10/3 入住（早到先寄存行李，或无前台需提前联系房东）· 10/6 退房</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-name">Suite Inn Rome<span class="hotel-nights">1 晚</span></div>
+      <div class="hotel-addr"><a href="https://www.google.com/maps/search/?api=1&query=119+Via+Giovanni+Giolitti%2C+Stazione+Termini%2C+Rome" target="_blank" rel="noopener">119 Via Giovanni Giolitti, Stazione Termini, Rome →</a></div>
+      <div class="hotel-dates">10/6 12:30 前后入住 · 10/7 退房 · 含早餐</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-name">Citadines Bastille Marais Paris<span class="hotel-nights">2 晚</span></div>
+      <div class="hotel-addr"><a href="https://www.google.com/maps/search/?api=1&query=37+Bd+Richard-Lenoir%2C+Paris%2C+75011%2C+France" target="_blank" rel="noopener">37 Bd Richard-Lenoir, Paris, 75011 →</a></div>
+      <div class="hotel-dates">10/7 18:05 前后入住 · 10/9 退房</div>
+    </div>
+  </div>
+
+  <div class="booking-group">
+    <h3>需提前预约 / 购票</h3>
+    <div class="plan-row"><div class="plan-content">罗马斗兽场＋古罗马广场套票 <span class="badge book">重新抢票</span><span class="plan-note" style="color:var(--rust)">错过 9/6 放票窗口，需按新一轮开放时间提前约一周抢票，官网 ticketing.colosseo.it；抢不到需准备备用方案</span></div></div>
+    <div class="plan-row"><div class="plan-content">索伦托 → 波西塔诺 渡轮 <span class="badge tip">线上提前买</span><span class="plan-note" style="color:var(--ink-soft)">NLG / Alilauro 官网购买，旺季现场可能无票</span></div></div>
+  </div>
+</div>
+
+<!-- ================= ROUTE MAP ================= -->
+<section class="section" id="map">
+  <div class="section-head"><span class="section-num">02</span><h2 class="section-title">路线总览</h2></div>
+  <div class="map-wrap">
+    <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg">
+      <!-- background doodles -->
+      <g opacity="0.5" stroke="var(--line)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M480,260 L505,215 L525,245 L550,205 L575,260 Z"/>
+        <path d="M550,255 L568,222 L586,255 Z"/>
+      </g>
+      <g opacity="0.55" stroke="var(--sea)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M10,300 q10,-8 20,0 q10,-8 20,0 q10,-8 20,0"/>
+        <path d="M300,300 q10,-8 20,0 q10,-8 20,0 q10,-8 20,0"/>
+      </g>
+      <g opacity="0.6" stroke="var(--gold)" stroke-width="2" fill="none" stroke-linecap="round">
+        <circle cx="640" cy="40" r="14"/>
+        <path d="M640,20 v-10 M640,60 v10 M620,40 h-10 M660,40 h10 M625,25 l-7,-7 M655,25 l7,-7 M625,55 l-7,7 M655,55 l7,7"/>
+      </g>
+
+      <!-- route path -->
+      <path d="M25,250 C 70,190 100,270 145,215 S 210,130 250,160 S 320,240 360,200 S 425,100 465,130 S 535,215 575,175 S 645,75 695,55"
+            fill="none" stroke="var(--sea)" stroke-width="2" stroke-dasharray="1 8" stroke-linecap="round"/>
+
+      <g font-family="Archivo" font-size="10.5" fill="var(--ink-soft)">
+        <circle cx="25" cy="250" r="11" fill="var(--ink)"/>
+        <text x="25" y="254" text-anchor="middle" fill="var(--paper)" font-weight="700" font-size="10">1</text>
+        <text x="25" y="275" text-anchor="middle">成都</text>
+
+        <circle cx="145" cy="215" r="11" fill="var(--ink)"/>
+        <text x="145" y="219" text-anchor="middle" fill="var(--paper)" font-weight="700" font-size="10">2</text>
+        <text x="145" y="197" text-anchor="middle">罗马 · 转机</text>
+
+        <circle cx="250" cy="160" r="12" fill="#C6912E"/>
+        <text x="250" y="164" text-anchor="middle" fill="#1B262E" font-weight="700" font-size="10">3</text>
+        <text x="250" y="142" text-anchor="middle" font-weight="700" fill="var(--ink)">戛纳</text>
+        <text x="250" y="180" text-anchor="middle" font-size="9">住 6 晚</text>
+
+        <circle cx="360" cy="200" r="12" fill="#6C7B54"/>
+        <text x="360" y="204" text-anchor="middle" fill="#1B262E" font-weight="700" font-size="10">4</text>
+        <text x="360" y="222" text-anchor="middle" font-weight="700" fill="var(--ink)">那不勒斯</text>
+        <text x="360" y="186" text-anchor="middle" font-size="9">住 1 晚</text>
+
+        <circle cx="465" cy="130" r="12" fill="#AE4B2A"/>
+        <text x="465" y="134" text-anchor="middle" fill="var(--paper)" font-weight="700" font-size="10">5</text>
+        <text x="465" y="112" text-anchor="middle" font-weight="700" fill="var(--ink)">索伦托</text>
+        <text x="465" y="148" text-anchor="middle" font-size="9">住 3 晚</text>
+
+        <circle cx="575" cy="175" r="11" fill="var(--ink)"/>
+        <text x="575" y="179" text-anchor="middle" fill="var(--paper)" font-weight="700" font-size="10">6</text>
+        <text x="575" y="197" text-anchor="middle" font-weight="700" fill="var(--ink)">罗马</text>
+        <text x="575" y="161" text-anchor="middle" font-size="9">住 1 晚</text>
+
+        <circle cx="695" cy="55" r="12" fill="#1F6E75"/>
+        <text x="695" y="59" text-anchor="middle" fill="var(--paper)" font-weight="700" font-size="10">7</text>
+        <text x="695" y="37" text-anchor="middle" font-weight="700" fill="var(--ink)">巴黎</text>
+        <text x="695" y="80" text-anchor="middle" font-size="9">住 2 晚 → 福州</text>
+      </g>
+    </svg>
+    <div class="map-legend">
+      <span><i class="dot" style="background:#C6912E"></i>南法 · 戛纳</span>
+      <span><i class="dot" style="background:#6C7B54"></i>那不勒斯</span>
+      <span><i class="dot" style="background:#AE4B2A"></i>索伦托半岛</span>
+      <span><i class="dot" style="background:#1F6E75"></i>巴黎</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAY BY DAY ================= -->
+<section class="section" id="days">
+  <div class="section-head"><span class="section-num">03</span><h2 class="section-title">逐日行程</h2></div>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">9/24<small>周四</small></div>
+      <div class="day-headline">福州 → <b>成都</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Fuzhou+Changle+International+Airport&destination=%E5%9B%9B%E5%B7%9D%E6%88%90%E9%83%BD%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%9C%E5%AE%89%E5%8D%97%E8%B7%AF59%E5%8F%B73%E6%A5%BC" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">17:20</div><div class="plan-content">3U6910 福州长乐起飞 → 成都</div></div>
+      <div class="plan-row"><div class="plan-time">20:10</div><div class="plan-content">抵达成都天府 T2</div></div>
+      <div class="plan-row"><div class="plan-time">晚上</div><div class="plan-content">前往<a href="https://www.google.com/maps/search/?api=1&query=%E5%9B%9B%E5%B7%9D%E6%88%90%E9%83%BD%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%9C%E5%AE%89%E5%8D%97%E8%B7%AF59%E5%8F%B73%E6%A5%BC" target="_blank">SFEEL设计师酒店</a>入住，收拾行李，检查证件、充电宝、转换插头（欧标）</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">9/25<small>周五</small></div>
+      <div class="day-headline">成都 · <b>退房 · 准备出发</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <div class="plan-row"><div class="plan-time">12:00</div><div class="plan-content">酒店退房</div></div>
+      <div class="plan-row"><div class="plan-time">凌晨前</div><div class="plan-content">前往成都天府机场，9/26 01:40 起飞，建议提前 2-3 小时到达 <span class="badge tip">红眼航班</span></div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">9/26<small>周六</small></div>
+      <div class="day-headline">成都 → 罗马 → 尼斯 → <b>戛纳入住</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Rome+Fiumicino+Airport&destination=45+Boulevard+de+la+Croisette%2C+Cannes&waypoints=Nice+C%C3%B4te+d%27Azur+Airport" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">01:40</div><div class="plan-content">3U3895 成都起飞 <span class="tz">(北京时间)</span></div></div>
+      <div class="plan-row"><div class="plan-time">07:00</div><div class="plan-content">抵达罗马菲乌米奇诺 T3 <span class="tz">(当地时间 UTC+2)</span></div></div>
+      <div class="plan-row"><div class="plan-time">10:40</div><div class="plan-content">U22978 罗马 T1 起飞 → 尼斯</div></div>
+      <div class="plan-row"><div class="plan-time">11:55</div><div class="plan-content">抵达尼斯蔚蓝海岸机场</div></div>
+      <div class="plan-row"><div class="plan-time">16:00</div><div class="plan-content"><a href="https://www.google.com/maps/search/?api=1&query=45+Boulevard+de+la+Croisette%2C+Cannes" target="_blank">戛纳公寓入住</a>，克鲁瓦塞特海滨大道</div></div>
+      <div class="plan-row"><div class="plan-time">傍晚</div><div class="plan-content">克鲁瓦塞特海滨散步、安顿休整，为接下来两天南法行程养精蓄锐</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">9/27<small>周日</small></div>
+      <div class="day-headline">南法一日 · <b>安提布 + 埃兹</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=45+Boulevard+de+la+Croisette%2C+Cannes&destination=%C3%88ze%2C+France&waypoints=Antibes%2C+France" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">上午</div><div class="plan-content"><a href="https://www.google.com/maps/search/?api=1&query=Antibes%2C+France" target="_blank">安提布</a> — 老城市集 Marché Provençal、毕加索博物馆海景城堡、海边城墙步道。离戛纳最近，约20分钟车程</div></div>
+      <div class="plan-row"><div class="plan-time">午餐</div><div class="plan-content">安提布老城内简单午餐</div></div>
+      <div class="plan-row"><div class="plan-time">下午—傍晚</div><div class="plan-content"><a href="https://www.google.com/maps/search/?api=1&query=%C3%88ze%2C+France" target="_blank">埃兹小镇</a> — 悬崖上的中世纪村落，山顶热带植物园可俯瞰地中海，建议留到日落再走，人少光线好</div></div>
+      <div class="plan-row"><div class="plan-content" style="color:var(--ink-soft)">这两个小镇可以互换顺序或只选一个，是弹性安排，到时候看精力和天气再定</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">9/28<small>周一</small></div>
+      <div class="day-headline">戛纳 · <b>工作</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body"><div class="plan-row"><div class="plan-content">戛纳驻留工作，暂无游览安排</div></div></div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">9/29<small>周二</small></div>
+      <div class="day-headline">戛纳 · <b>工作</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body"><div class="plan-row"><div class="plan-content">戛纳驻留工作，暂无游览安排</div></div></div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">9/30<small>周三</small></div>
+      <div class="day-headline">戛纳 · <b>工作</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body"><div class="plan-row"><div class="plan-content">戛纳驻留工作，暂无游览安排</div></div></div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/1<small>周四</small></div>
+      <div class="day-headline">戛纳 · <b>工作</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body"><div class="plan-row"><div class="plan-content">戛纳驻留工作，暂无游览安排</div></div></div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/2<small>周五</small></div>
+      <div class="day-headline">戛纳 → 尼斯 → <b>那不勒斯</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=45+Boulevard+de+la+Croisette%2C+Cannes&destination=Piazza+Garibaldi+99%2C+80142+Napoli&waypoints=Nice+C%C3%B4te+d%27Azur+Airport" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">上午</div><div class="plan-content">睡懒觉、吃早餐、收拾行李</div></div>
+      <div class="plan-row"><div class="plan-time">12:00</div><div class="plan-content">公寓退房，打车去尼斯机场，约40分钟</div></div>
+      <div class="plan-row"><div class="plan-time">14:55</div><div class="plan-content">U24192 尼斯起飞 → 那不勒斯</div></div>
+      <div class="plan-row"><div class="plan-time">16:20</div><div class="plan-content">抵达那不勒斯机场</div></div>
+      <div class="plan-row"><div class="plan-time">17:40</div><div class="plan-content"><a href="https://www.google.com/maps/search/?api=1&query=Piazza+Garibaldi+99%2C+80142+Napoli" target="_blank">Ideal City Walk 入住</a></div></div>
+      <div class="plan-row"><div class="plan-time">晚上</div><div class="plan-content">建议点外卖（Glovo / Deliveroo），不出门<span class="plan-note">推荐：Pizza Margherita、Spaghetti alle Vongole、Frittura di Paranza，附近名店 L'Antica Pizzeria da Michele</span></div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/3<small>周六</small></div>
+      <div class="day-headline">那不勒斯 → 索伦托 → <b>波西塔诺</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Napoli+Centrale&destination=Positano%2C+Italy&waypoints=Via+Parsano+4+Sorrento" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">07:30</div><div class="plan-content">Circumvesuviana 郊区铁路，那不勒斯 → 索伦托，约1小时20分<span class="plan-note">车站下层现场买票，无固定座位，先到先得</span></div></div>
+      <div class="plan-row"><div class="plan-time">08:50</div><div class="plan-content">抵达索伦托，步行到<a href="https://www.google.com/maps/search/?api=1&query=Via+Parsano%2C+4%2C+Sorrento" target="_blank">民宿</a>寄存行李（时间太早暂不入住）</div></div>
+      <div class="plan-row"><div class="plan-time">09:30</div><div class="plan-content">步行至索伦托码头，约15分钟</div></div>
+      <div class="plan-row"><div class="plan-time">10:00</div><div class="plan-content">轮渡去<a href="https://www.google.com/maps/search/?api=1&query=Positano%2C+Italy" target="_blank">波西塔诺</a>，40-60分钟 <span class="badge tip">线上提前买票</span></div></div>
+      <div class="plan-row"><div class="plan-time">11:00-14:30</div><div class="plan-content">波西塔诺游玩：彩色悬崖大海滩 Spiaggia Grande、最美巴士站 V.G. Marconi 19、柠檬冰沙店、瓷器店、柠檬镜子店</div></div>
+      <div class="plan-row"><div class="plan-time">14:30</div><div class="plan-content">轮渡返回索伦托</div></div>
+      <div class="plan-row"><div class="plan-time">15:30</div><div class="plan-content">索伦托逛逛看日落：观景台 Villa Comunale（可看维苏威火山+那不勒斯湾）、市中心 Piazza Tasso、老城区、小渔港 Marina Grande</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/4<small>周日</small></div>
+      <div class="day-headline">索伦托 → <b>卡普里岛</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Via+Parsano+4+Sorrento&destination=Capri%2C+Italy" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">08:00</div><div class="plan-content">索伦托码头出发，快船去卡普里岛，约30分钟</div></div>
+      <div class="plan-row"><div class="plan-time">08:30</div><div class="plan-content">抵达卡普里，缆车/巴士上 Capri Town，约10分钟</div></div>
+      <div class="plan-row"><div class="plan-time">09:00-10:30</div><div class="plan-content">卡普里镇闲逛，Piazzetta 广场喝咖啡、小巷拍照</div></div>
+      <div class="plan-row"><div class="plan-time">10:30-12:00</div><div class="plan-content">网红S弯 Via Krupp（免费）、奥古斯都花园 Giardini di Augusto</div></div>
+      <div class="plan-row"><div class="plan-time">12:00-13:30</div><div class="plan-content">午餐，推荐海鲜意面、柠檬意面 Lemon pasta</div></div>
+      <div class="plan-row"><div class="plan-time">13:30-15:30</div><div class="plan-content">核心景点二选一：<b>蓝洞 Blue Grotto</b>（受海况影响可能关闭）或<b>索拉罗山观景台 Monte Solaro</b>（缆车上山更稳妥）</div></div>
+      <div class="plan-row"><div class="plan-time">17:00</div><div class="plan-content">从 Marina Grande 码头坐快船返回索伦托</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/5<small>周一</small></div>
+      <div class="day-headline">索伦托 → <b>阿马尔菲 · 拉韦洛</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Via+Parsano+4+Sorrento&destination=Ravello%2C+Italy&waypoints=Amalfi%2C+Italy" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">08:30</div><div class="plan-content">索伦托码头出发，轮渡去阿玛尔菲，约1.5小时</div></div>
+      <div class="plan-row"><div class="plan-time">10:00-12:00</div><div class="plan-content">阿玛尔菲小镇游玩：镇中心 Piazza del Duomo、Marina Grande 海滨步道</div></div>
+      <div class="plan-row"><div class="plan-time">12:00</div><div class="plan-content">Amalfi Bus Terminal 坐巴士上拉韦洛，25-40分钟山路</div></div>
+      <div class="plan-row"><div class="plan-time">12:40-15:00</div><div class="plan-content">拉韦洛游玩：Villa Rufolo 鲁佛洛别墅（先去，在镇中心）、Villa Cimbrone 钦布罗内别墅（在山上，需走15-20分钟上坡）</div></div>
+      <div class="plan-row"><div class="plan-time">15:40</div><div class="plan-content">下山回阿玛尔菲再逛逛</div></div>
+      <div class="plan-row"><div class="plan-time">17:00</div><div class="plan-content">坐船返回索伦托，约1.5小时，可看日落海景</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/6<small>周二</small></div>
+      <div class="day-headline">索伦托 → 罗马 · <b>古罗马东线</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=Via+Parsano+4+Sorrento&destination=119+Via+Giovanni+Giolitti%2C+Rome&waypoints=Napoli+Centrale" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">08:30</div><div class="plan-content">从民宿出发去索伦托火车站</div></div>
+      <div class="plan-row"><div class="plan-time">09:00-10:20</div><div class="plan-content">Circumvesuviana 郊区铁路，索伦托 → 那不勒斯</div></div>
+      <div class="plan-row"><div class="plan-time">10:20-10:40</div><div class="plan-content">中转换乘：到站 Napoli Garibaldi（地下），上楼5-10分钟到 Napoli Centrale 高铁站 <span class="badge tip">时间较紧</span></div></div>
+      <div class="plan-row"><div class="plan-time">10:40-12:05</div><div class="plan-content">Frecciarossa / Italo 高铁，那不勒斯 → 罗马 Termini</div></div>
+      <div class="plan-row"><div class="plan-time">12:05-12:30</div><div class="plan-content">步行到<a href="https://www.google.com/maps/search/?api=1&query=119+Via+Giovanni+Giolitti%2C+Rome" target="_blank">酒店</a>入住或寄存行李</div></div>
+      <div class="plan-row"><div class="plan-time">12:30-13:30</div><div class="plan-content">午餐（早餐吃太饱可简单吃）</div></div>
+      <div class="plan-row"><div class="plan-time">14:00</div><div class="plan-content">地铁B线 Termini → Colosseo，约5分钟</div></div>
+      <div class="plan-row"><div class="plan-time">14:10-15:30</div><div class="plan-content">罗马斗兽场 <span class="badge book">票务待重新预约</span><span class="plan-note" style="color:var(--rust)">已错过9/6抢票窗口，需提前约一周重新预约，否则外部远观1小时即可</span></div></div>
+      <div class="plan-row"><div class="plan-time">15:30-16:15</div><div class="plan-content">步行5分钟至古罗马广场 Roman Forum</div></div>
+      <div class="plan-row"><div class="plan-time">16:15-17:00</div><div class="plan-content">步行15分钟至威尼斯宫 Piazza Venezia（不上观景台不用门票）</div></div>
+      <div class="plan-row"><div class="plan-time">17:00-18:00</div><div class="plan-content">沿 Via del Corso 散步，罗马最热闹的大街</div></div>
+      <div class="plan-row"><div class="plan-time">18:00</div><div class="plan-content">晚餐，推荐在 Via del Corso 附近</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/7<small>周三</small></div>
+      <div class="day-headline">罗马西线 → <b>飞巴黎</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=119+Via+Giovanni+Giolitti%2C+Rome&destination=Rome+Fiumicino+Airport&waypoints=Fontana+di+Trevi%7CPiazza+Navona" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">09:00-09:40</div><div class="plan-content">许愿池 Fontana di Trevi，早一点去人少，免费无需预约</div></div>
+      <div class="plan-row" style="text-decoration:line-through; color:var(--ink-soft);"><div class="plan-time">已取消</div><div class="plan-content">万神殿 Pantheon</div></div>
+      <div class="plan-row"><div class="plan-time">10:30-12:30</div><div class="plan-content">纳沃纳广场 Piazza Navona，免费，咖啡/午餐</div></div>
+      <div class="plan-row"><div class="plan-time">12:30-13:00</div><div class="plan-content">步行15分钟回酒店取行李、退房</div></div>
+      <div class="plan-row"><div class="plan-time">13:00</div><div class="plan-content">机场快线 Leonardo Express，约32分钟</div></div>
+      <div class="plan-row"><div class="plan-time">15:30</div><div class="plan-content">U24936 罗马FCO起飞 → 巴黎奥利 <span class="badge tip">上午行程别拖延</span></div></div>
+      <div class="plan-row"><div class="plan-time">17:35</div><div class="plan-content">抵达巴黎奥利机场，打车约30分钟到酒店</div></div>
+      <div class="plan-row"><div class="plan-time">18:05</div><div class="plan-content"><a href="https://www.google.com/maps/search/?api=1&query=37+Bd+Richard-Lenoir%2C+Paris" target="_blank">Citadines Bastille Marais 入住</a></div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/8<small>周四</small></div>
+      <div class="day-headline">巴黎经典一日</div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=37+Bd+Richard-Lenoir%2C+Paris&destination=Tour+Eiffel%2C+Paris&waypoints=Montmartre%2C+Paris%7CGaleries+Lafayette+Haussmann%7CMus%C3%A9e+du+Louvre%7CArc+de+Triomphe%2C+Paris" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">09:00-12:00</div><div class="plan-content">蒙马特高地：爱墙 Le Mur des Je t'aime → 粉色咖啡馆 La Maison Rose → 圣心大教堂 Sacré-Cœur 俯瞰城景<span class="plan-note">地铁12号线 Bastille → Abbesses，约25分钟</span></div></div>
+      <div class="plan-row"><div class="plan-time">12:00-14:40</div><div class="plan-content">老佛爷 Galeries Lafayette → 巴黎春天 Printemps Haussmann 逛街<span class="plan-note">买了贵重物品建议先送回酒店，防扒窃</span></div></div>
+      <div class="plan-row"><div class="plan-time">14:40-15:30</div><div class="plan-content">卢浮宫 Musée du Louvre（外部拍照）</div></div>
+      <div class="plan-row"><div class="plan-time">15:30-16:20</div><div class="plan-content">杜乐丽花园 Tuileries Garden</div></div>
+      <div class="plan-row"><div class="plan-time">16:20-17:20</div><div class="plan-content">香榭丽舍大街 → 凯旋门 Arc de Triomphe（不登顶）</div></div>
+      <div class="plan-row"><div class="plan-time">17:20-19:30</div><div class="plan-content">埃菲尔铁塔（不登顶）、塞纳河边逛吃<span class="plan-note">拍照机位：Bateau Boréas 码头、耶拿桥夜景、战神广场草坪</span></div></div>
+      <div class="plan-row"><div class="plan-time">19:30-21:00</div><div class="plan-content">塞纳河游船，Port de la Bourdonnais 码头 <span class="badge tip">线上购票免排队</span></div></div>
+      <div class="plan-row"><div class="plan-time">21:00</div><div class="plan-content">打车回酒店，约20-30分钟</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/9<small>周五</small></div>
+      <div class="day-headline">巴黎 → <b>飞回国</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <a class="day-nav-btn" href="https://www.google.com/maps/dir/?api=1&origin=37+Bd+Richard-Lenoir%2C+Paris&destination=Paris+Charles+de+Gaulle+Airport&waypoints=Cath%C3%A9drale+Notre-Dame+de+Paris%7CLe+Marais%2C+Paris" target="_blank" rel="noopener">打开当日路线导航 →</a>
+      <div class="plan-row"><div class="plan-time">09:30-11:00</div><div class="plan-content">巴黎圣母院 Cathédrale Notre-Dame</div></div>
+      <div class="plan-row"><div class="plan-time">11:00-17:00</div><div class="plan-content">玛黑区 Le Marais 逛吃，回酒店取行李</div></div>
+      <div class="plan-row"><div class="plan-time">17:00</div><div class="plan-content">出发去戴高乐机场，打车45-60分钟</div></div>
+      <div class="plan-row"><div class="plan-time">21:20</div><div class="plan-content">MU570 巴黎戴高乐起飞 → 上海（中转约1小时50分）</div></div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-date">10/10<small>周六</small></div>
+      <div class="day-headline">上海转机 → <b>抵达福州</b></div>
+      <div class="day-caret">▶</div>
+    </summary>
+    <div class="day-body">
+      <div class="plan-row"><div class="plan-time">14:40</div><div class="plan-content">抵达上海浦东 T1 <span class="tz">(北京时间)</span></div></div>
+      <div class="plan-row"><div class="plan-time">16:30</div><div class="plan-content">MU5599 上海浦东起飞 → 福州长乐</div></div>
+      <div class="plan-row"><div class="plan-time">18:20</div><div class="plan-content">抵达福州长乐，行程结束 ✈</div></div>
+    </div>
+  </details>
+</section>
+
+<!-- ================= TODO ================= -->
+<section class="section" id="todo">
+  <div class="section-head"><span class="section-num">04</span><h2 class="section-title">待办清单</h2></div>
+  <ul class="todo">
+    <li>重新预约罗马斗兽场＋古罗马广场门票（提前一周操作，官网 ticketing.colosseo.it）</li>
+    <li>线上购买索伦托 → 波西塔诺往返船票（NLG / Alilauro 官网）</li>
+    <li>9/27 南法一日游最终确认走安提布还是埃兹，或两个都去</li>
+    <li>确认巴黎玛黑区具体想去的店铺清单</li>
+    <li>与索伦托民宿房东确认入住联系方式（提前到店行李寄存事宜）</li>
+    <li>准备欧标转换插头、境外流量/eSIM</li>
+    <li>下载 Glovo / Deliveroo（那不勒斯晚上点外卖用）</li>
+  </ul>
+</section>
+
+<!-- ================= TIPS ================= -->
+<section class="section" id="tips">
+  <div class="section-head"><span class="section-num">05</span><h2 class="section-title">实用贴士</h2></div>
+  <div class="tip-grid">
+    <div class="tip-card">
+      <h4>时区</h4>
+      <p>中国全程 UTC+8；意大利、法国全程夏令时 UTC+2（10月最后一个周日才转冬令时，本次行程内不会变动）。与国内时差固定 6 小时。</p>
+    </div>
+    <div class="tip-card">
+      <h4>货币与支付</h4>
+      <p>欧元区，Visa/Mastercard 基本通用，小镇个体店铺、渡轮码头建议备一些现金。</p>
+    </div>
+    <div class="tip-card">
+      <h4>交通App</h4>
+      <p>Google Maps 查路线；意大利段外卖用 Glovo / Deliveroo；渡轮票提前上官网订，旺季现场可能售罄。</p>
+    </div>
+    <div class="tip-card">
+      <h4>景点预约提醒</h4>
+      <p>斗兽场、梵蒂冈类热门景点旺季基本都需提前在官网抢票，建议每到一个大城市前一周先查一次官网放票情况。</p>
+    </div>
+    <div class="tip-card">
+      <h4>索伦托半岛交通</h4>
+      <p>Circumvesuviana 郊区铁路无对号入座，先到先得，发车间隔20-30分钟；卡普里/波西塔诺/阿马尔菲渡轮受海况影响，风浪大时可能停航，建议留出弹性时间。</p>
+    </div>
+    <div class="tip-card">
+      <h4>紧急情况</h4>
+      <p>欧盟境内通用紧急电话 <b>112</b>（火警/急救/报警均可）。护照/证件丢失第一时间联系当地中国使领馆。</p>
+    </div>
+  </div>
+  <div class="bottom-space"></div>
+</section>
+
+<footer>
+  路线导航基于 Google 地图 · 页面离线可看，内容以实际预订为准
+</footer>
+
+<div class="theme-toggle" id="theme-toggle" title="切换白天/黑夜配色">☀︎</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- Day / Night auto theme ---------------- */
+  function applyTheme(){
+    var h = new Date().getHours();
+    var isDay = h >= 6 && h < 18;
+    if (window.__themeManual === undefined){
+      document.documentElement.setAttribute('data-theme', isDay ? 'day' : 'night');
+    }
+    var btn = document.getElementById('theme-toggle');
+    var current = document.documentElement.getAttribute('data-theme');
+    btn.textContent = current === 'day' ? '☀︎' : '☾';
+  }
+  applyTheme();
+  setInterval(applyTheme, 60000);
+  document.getElementById('theme-toggle').addEventListener('click', function(){
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'day' ? 'night' : 'day';
+    document.documentElement.setAttribute('data-theme', next);
+    window.__themeManual = true;
+    this.textContent = next === 'day' ? '☀︎' : '☾';
+  });
+
+  /* ---------------- Tab nav: smooth scroll + active state ---------------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-tab]'));
+  var sections = tabs.map(function(t){ return document.querySelector(t.getAttribute('href')); });
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.querySelector(tab.getAttribute('href'));
+      var navH = document.querySelector('nav.tabbar').offsetHeight;
+      var y = target.getBoundingClientRect().top + window.pageYOffset - navH - 4;
+      window.scrollTo({top:y, behavior:'smooth'});
+    });
+  });
+
+  function updateActiveTab(){
+    var navH = document.querySelector('nav.tabbar').offsetHeight;
+    var pos = window.pageYOffset + navH + 20;
+    var activeIdx = 0;
+    sections.forEach(function(sec, i){
+      if (sec.offsetTop <= pos) activeIdx = i;
+    });
+    tabs.forEach(function(t,i){ t.classList.toggle('active', i===activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveTab, {passive:true});
+  updateActiveTab();
+
+  /* ---------------- Deck carousel dots ---------------- */
+  var deck = document.getElementById('deck-scroll');
+  var dots = Array.prototype.slice.call(document.querySelectorAll('#deck-dots i'));
+  var cards = Array.prototype.slice.call(deck.children);
+  function updateDots(){
+    var scrollCenter = deck.scrollLeft + deck.clientWidth/2;
+    var closest = 0, closestDist = Infinity;
+    cards.forEach(function(c,i){
+      var center = c.offsetLeft + c.clientWidth/2;
+      var d = Math.abs(center - scrollCenter);
+      if (d < closestDist){ closestDist = d; closest = i; }
+    });
+    dots.forEach(function(d,i){ d.classList.toggle('on', i===closest); });
+  }
+  deck.addEventListener('scroll', updateDots, {passive:true});
+  updateDots();
+
+  /* ---------------- Key moments for "此刻关注" strip ---------------- */
+  var moments = [
+    {t:"2026-09-24T09:20:00Z", title:"3U6910 福州起飞 → 成都", q:"Fuzhou Changle International Airport"},
+    {t:"2026-09-24T12:10:00Z", title:"抵达成都天府机场", q:"Chengdu Tianfu International Airport"},
+    {t:"2026-09-24T13:00:00Z", title:"成都酒店入住（预计）", q:"四川成都锦江区东安南路59号3楼"},
+    {t:"2026-09-25T04:00:00Z", title:"成都酒店退房", q:"四川成都锦江区东安南路59号3楼"},
+    {t:"2026-09-25T17:40:00Z", title:"3U3895 成都起飞", q:"成都天府国际机场"},
+    {t:"2026-09-26T05:00:00Z", title:"抵达罗马菲乌米奇诺", q:"Rome Fiumicino Airport"},
+    {t:"2026-09-26T08:40:00Z", title:"U22978 罗马起飞 → 尼斯", q:"Rome Fiumicino Airport"},
+    {t:"2026-09-26T09:55:00Z", title:"抵达尼斯", q:"Nice Côte d'Azur Airport"},
+    {t:"2026-09-26T14:00:00Z", title:"戛纳公寓入住", q:"45 Boulevard de la Croisette, Cannes"},
+    {t:"2026-10-02T09:00:00Z", title:"戛纳公寓退房", q:"45 Boulevard de la Croisette, Cannes"},
+    {t:"2026-10-02T12:55:00Z", title:"U24192 尼斯起飞 → 那不勒斯", q:"Nice Côte d'Azur Airport"},
+    {t:"2026-10-02T14:20:00Z", title:"抵达那不勒斯", q:"Naples International Airport"},
+    {t:"2026-10-02T15:40:00Z", title:"Ideal City Walk 入住", q:"Piazza Garibaldi 99, 80142 Napoli"},
+    {t:"2026-10-03T05:30:00Z", title:"郊区铁路出发去索伦托", q:"Napoli Centrale"},
+    {t:"2026-10-03T08:00:00Z", title:"渡轮出发去波西塔诺", q:"Sorrento port"},
+    {t:"2026-10-04T06:00:00Z", title:"快船出发去卡普里岛", q:"Sorrento port"},
+    {t:"2026-10-05T06:30:00Z", title:"渡轮出发去阿玛尔菲", q:"Sorrento port"},
+    {t:"2026-10-06T06:30:00Z", title:"索伦托出发去罗马", q:"Sorrento train station"},
+    {t:"2026-10-06T10:05:00Z", title:"抵达罗马 Termini", q:"Roma Termini"},
+    {t:"2026-10-06T12:10:00Z", title:"罗马斗兽场（待重新预约）", q:"Colosseum, Rome"},
+    {t:"2026-10-07T11:00:00Z", title:"罗马酒店退房，前往机场", q:"119 Via Giovanni Giolitti, Rome"},
+    {t:"2026-10-07T13:30:00Z", title:"U24936 罗马起飞 → 巴黎", q:"Rome Fiumicino Airport"},
+    {t:"2026-10-07T15:35:00Z", title:"抵达巴黎奥利", q:"Paris Orly Airport"},
+    {t:"2026-10-07T16:05:00Z", title:"Citadines Bastille 入住", q:"37 Bd Richard-Lenoir, Paris"},
+    {t:"2026-10-09T15:00:00Z", title:"巴黎出发去戴高乐机场", q:"37 Bd Richard-Lenoir, Paris"},
+    {t:"2026-10-09T19:20:00Z", title:"MU570 巴黎起飞 → 上海", q:"Paris Charles de Gaulle Airport"},
+    {t:"2026-10-10T06:40:00Z", title:"抵达上海浦东", q:"Shanghai Pudong Airport"},
+    {t:"2026-10-10T08:30:00Z", title:"MU5599 上海起飞 → 福州", q:"Shanghai Pudong Airport"},
+    {t:"2026-10-10T10:20:00Z", title:"抵达福州，行程结束", q:"Fuzhou Changle Airport"}
+  ];
+
+  function findNext(){
+    var now = Date.now();
+    for (var i=0;i<moments.length;i++){
+      if (new Date(moments[i].t).getTime() > now) return moments[i];
+    }
+    return null;
+  }
+
+  function pad(n){ return n<10 ? '0'+n : ''+n; }
+
+  function tickStrip(){
+    var next = findNext();
+    var titleEl = document.getElementById('now-title');
+    var mapLink = document.getElementById('now-map-link');
+    if (!next){
+      titleEl.textContent = "旅程已结束，欢迎回家";
+      mapLink.style.display = 'none';
+      return;
+    }
+    titleEl.textContent = next.title;
+    mapLink.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(next.q);
+  }
+
+  /* ---------------- Countdown embedded in first deck card ---------------- */
+  function tickDeck(){
+    var card = document.querySelector('.deck-card[data-takeoff]');
+    if (!card) return;
+    var target = new Date(card.getAttribute('data-takeoff')).getTime();
+    var diff = target - Date.now();
+    if (diff < 0) diff = 0;
+    var s = Math.floor(diff/1000);
+    var d = Math.floor(s/86400); s -= d*86400;
+    var h = Math.floor(s/3600); s -= h*3600;
+    var m = Math.floor(s/60); s -= m*60;
+    var d1 = document.getElementById('cd1-d');
+    if (!d1) return;
+    d1.textContent = d;
+    document.getElementById('cd1-h').textContent = pad(h);
+    document.getElementById('cd1-m').textContent = pad(m);
+    document.getElementById('cd1-s').textContent = pad(s);
+  }
+
+  tickStrip(); tickDeck();
+  setInterval(function(){ tickStrip(); tickDeck(); }, 1000);
+})();
+</script>
+
+</body>
+</html>
